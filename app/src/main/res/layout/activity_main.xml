@@ -8,63 +8,92 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/userName"
+   <ScrollView
+       android:id="@+id/inputView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+           <EditText
+               android:id="@+id/userName"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:maxLines="1"
+               android:hint="Enter Your Name"
+               />
+
+           <EditText
+               android:id="@+id/userEmail"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:hint="Enter Your Email"
+               android:inputType="textEmailAddress"
+               android:maxLines="1"
+               />
+
+           <EditText
+               android:id="@+id/userMobile"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:inputType="phone"
+               android:maxLines="1"
+               android:hint="Enter Your Mobile Number"
+               />
+
+           <EditText
+               android:id="@+id/userAddress"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_margin="10dp"
+               android:maxLines="2"
+               android:hint="Enter Your Address"
+               />
+
+
+
+           <Button
+               android:id="@+id/submit"
+               android:layout_margin="10dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Submit"
+               />
+
+           <TextView
+               android:id="@+id/display"
+               android:layout_width="match_parent"
+               android:textSize="10sp"
+               android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
+       </LinearLayout>
+   </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/displayView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxLines="1"
-        android:hint="Enter Your Name"
-        />
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="I WILL SHOW THE INFO"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/userEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Your Email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        />
-
-    <EditText
-        android:id="@+id/userMobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="phone"
-        android:maxLines="1"
-        android:hint="Enter Your Mobile Number"
-        />
-
-    <EditText
-        android:id="@+id/userAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxLines="2"
-        android:hint="Enter Your Address"
-        />
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        />
-
-    <TextView
-        android:id="@+id/display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-
-
-
-
-
+        </TextView>
+    </LinearLayout>
 
 
 

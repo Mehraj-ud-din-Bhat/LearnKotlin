@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
      lateinit var userPhone:EditText
      lateinit var userAddress:EditText
      lateinit var submit:Button
+     lateinit var  inputView:View
+     lateinit var  displayView:View
 
 
 
@@ -27,14 +30,17 @@ class MainActivity : AppCompatActivity() {
         userPhone=findViewById(R.id.userMobile)
         userAddress=findViewById(R.id.userAddress)
         submit=findViewById(R.id.submit)
+        inputView=findViewById(R.id.inputView)
+        displayView=findViewById(R.id.displayView)
         submit.setOnClickListener {
-            var status=validate();
+           var status=validate();
 
             if(status==true)
             {
                 // Everything is fine proceed further
                 Toast.makeText(this,"I am ready to send the form",Toast.LENGTH_LONG).show()
-
+               inputView.visibility=View.GONE
+                displayView.visibility=View.VISIBLE
                moveScreen()
 
 
@@ -83,12 +89,12 @@ class MainActivity : AppCompatActivity() {
 
     fun  moveScreen()
     {
-        var intent=Intent(this,ViewInfo::class.java)
-        intent.putExtra("name",userName.text.toString())
-        intent.putExtra("email",userEmail.text.toString())
-        intent.putExtra("phone",userPhone.text.toString())
-        intent.putExtra("address",userAddress.text.toString())
-        startActivity(intent)
+//        var intent=Intent(this,ViewInfo::class.java)
+//        intent.putExtra("name",userName.text.toString())
+//        intent.putExtra("email",userEmail.text.toString())
+//        intent.putExtra("phone",userPhone.text.toString())
+//        intent.putExtra("address",userAddress.text.toString())
+//        startActivity(intent)
     }
 
 
