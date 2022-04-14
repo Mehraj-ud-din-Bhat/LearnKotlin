@@ -1,10 +1,12 @@
 package com.example.learnkotlin
 
 class Student {
-    lateinit var  name:String
-    lateinit var   studentID:String
-    lateinit var  address:String
-    lateinit var  course:String
+    lateinit var studentName:String
+    lateinit var studentPhone:String
 
-
+    constructor(name:String,phone:String)
+    {
+        this.studentName=name
+        this.studentPhone=phone;
+    }
 }
