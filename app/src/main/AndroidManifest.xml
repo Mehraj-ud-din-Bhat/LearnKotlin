@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnKotlin">
         <activity
-            android:name=".ViewInfo"
+            android:name=".SecondActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>
