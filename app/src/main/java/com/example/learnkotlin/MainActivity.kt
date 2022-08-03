@@ -16,13 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        button=findViewById(R.id.move)
-        input=findViewById(R.id.input)
 
-        button.setOnClickListener {
-
-            move()
-        }
 
 
 
@@ -31,13 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun move(){
-        var intent = Intent(this,SecondActivity::class.java)
-        var name=input.text.toString()
-        intent.putExtra("name",name)
-        startActivity(intent)
 
-    }
 
 
 
