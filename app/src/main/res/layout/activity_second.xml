@@ -6,18 +6,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".SecondActivity">
-   <TextView
-       android:id="@+id/info"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="I AM SECOND ACTIVITY"
-       android:textSize="16sp"
-       android:layout_margin="10dp"
-       android:textColor="@color/white"
-       />
+    android:orientation="vertical"
 
+    tools:context=".SecondActivity">
+   <include
+       layout="@layout/toolbar"/>
+  <EditText
+   android:id="@+id/task_et"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+      android:minHeight="100dp"
+      android:maxHeight="300dp"
+      android:layout_margin="5dp"
+      android:hint="Enter Task "
+      android:background="@drawable/bg_edittext"
+
+
+    />
+
+   <Button
+       android:id="@+id/save_task"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Save Task"
+       android:layout_margin="10dp"
+       />
 
 
 
