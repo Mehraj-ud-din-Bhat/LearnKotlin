@@ -9,7 +9,15 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
       lateinit var  toolbarTitle:TextView;
-    lateinit var toolbarIcon: ImageView
+      lateinit var toolbarIcon: ImageView
+      lateinit var tasks_tv:TextView
+      companion object{
+          var list:ArrayList<Task> = ArrayList();
+
+      }
+
+
+
 
 
 
@@ -18,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         toolbarTitle=findViewById(R.id.toolBarTitle)
         toolbarIcon=findViewById(R.id.toolbarIcon)
+        tasks_tv=findViewById(R.id.tasks_tv)
+
+
         toolbarTitle.text="Task Manager"
 
         toolbarIcon.setOnClickListener {
@@ -28,6 +39,20 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        tasks_tv.text="";
+        for(task in list)
+        {
+            tasks_tv.text=tasks_tv.text.toString() + task.taskDescription+"\n";
+        }
     }
 
 
