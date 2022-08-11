@@ -6,25 +6,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A9E6DFDF"
+
+
     tools:context=".MainActivity">
  <include
      android:id="@+id/toolbarMain"
      layout="@layout/toolbar"/>
 
-
- <TextView
-     android:id="@+id/tasks_tv"
+ <LinearLayout
+     android:id="@+id/l1"
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:layout_below="@id/toolbarMain"
-     android:text="No Tasks Available"
-     android:padding="20dp"
-     android:fontFamily="@font/montserrat_alternates_medium"
-     android:textColor="@color/black"
-     android:textSize="20sp"
-     />
+     android:orientation="horizontal"
+     android:padding="4dp"
+     >
+  <Button
+      android:id="@+id/b1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Problem"
+      android:layout_weight="1"
+      android:layout_margin="8dp"
+      android:textAllCaps="false"
+      android:backgroundTint="@color/pink"
 
 
+      ></Button>
+
+  <Button
+      android:id="@+id/b2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Solution"
+      android:layout_weight="1"
+      android:layout_margin="8dp"
+      android:textAllCaps="false"
+      android:backgroundTint="@color/white"
+      android:textColor="@color/black"
+      ></Button>
+
+
+
+ </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:layout_below="@+id/l1"
+    >
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     >
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+  <include layout="@layout/recording_item"/>
+ </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+ <ImageView
+     android:layout_width="match_parent"
+     android:src="@drawable/p_imag"
+
+     android:adjustViewBounds="true"
+     android:alpha="0.07"
+     android:scaleType="fitXY"
+     android:layout_centerVertical="true"
+     android:layout_height="300dp"/>
 
 </RelativeLayout>
