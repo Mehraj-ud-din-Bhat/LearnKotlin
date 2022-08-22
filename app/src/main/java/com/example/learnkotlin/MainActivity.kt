@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
       lateinit var  toolbarTitle:TextView;
       lateinit var toolbarIcon: ImageView
-      lateinit var tasks_tv:TextView
+      lateinit var  rv_tasks:RecyclerView
+      lateinit var  adapter: TaskAdapter
       companion object{
           var list:ArrayList<Task> = ArrayList();
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         toolbarTitle=findViewById(R.id.toolBarTitle)
         toolbarIcon=findViewById(R.id.toolbarIcon)
-        tasks_tv=findViewById(R.id.tasks_tv)
+        rv_tasks=findViewById(R.id.tasks_rv)
 
 
         toolbarTitle.text="Task Manager"
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
+       initAdapter()
 
 
 
@@ -48,11 +51,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        tasks_tv.text="";
-        for(task in list)
-        {
-            tasks_tv.text=tasks_tv.text.toString() + task.taskDescription+"\n";
-        }
+        adapter.notifyDataSetChanged()
+
+    }
+
+    fun initAdapter()
+    {
+        adapter= TaskAdapter(list)
+        rv_tasks.layoutManager=LinearLayoutManager(this)
+        rv_tasks.adapter=adapter
+
     }
 
 
