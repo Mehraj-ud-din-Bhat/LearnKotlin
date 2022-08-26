@@ -9,12 +9,14 @@ class SecondActivity : AppCompatActivity() {
     lateinit var toolbarIcon: ImageView
     lateinit var  taskEt:EditText
     lateinit var  button: Button
+    lateinit var  taskTitle: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         toolbarTitle=findViewById(R.id.toolBarTitle)
         toolbarIcon=findViewById(R.id.toolbarIcon)
         taskEt=findViewById(R.id.task_et)
+        taskTitle=findViewById(R.id.task_title)
         button=findViewById(R.id.save_task)
         toolbarIcon.setImageDrawable(getDrawable(R.drawable.icon_close))
 
@@ -27,9 +29,16 @@ class SecondActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
+
+
+            if(taskTitle.text.length==0)
+            {
+                Toast.makeText(SecondActivity@this,"Please Enter Task Title",Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             if(taskEt.text.toString().length==0)
             {
-                Toast.makeText(SecondActivity@this,"Please enter task",Toast.LENGTH_LONG).show()
+                Toast.makeText(SecondActivity@this,"Please Enter Task Description",Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
@@ -42,8 +51,11 @@ class SecondActivity : AppCompatActivity() {
 
 
             var task=Task()
-            var a:Int;
-            task.taskDescription=taskEt.text.toString();
+
+            task.taskDescription  =taskEt.text.toString();
+
+            task.taskTitle= taskTitle.text.toString();
+
             MainActivity.list.add(task);
             finish()
 
