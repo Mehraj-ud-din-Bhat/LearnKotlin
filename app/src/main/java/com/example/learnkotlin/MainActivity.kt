@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.e(TAG,"In ON Resume")
+        adapter.notifyDataSetChanged()
     }
     override fun onStart() {
         super.onStart()
@@ -118,7 +119,10 @@ class MainActivity : AppCompatActivity() {
     fun onEditClicked(pos: Int)
     {
         val intent=Intent(this,SecondActivity::class.java)
+        intent.putExtra("taskPosition",pos)
         startActivity(intent)
+
+
     }
 
 

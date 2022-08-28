@@ -3,6 +3,7 @@ package com.example.learnkotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import java.text.FieldPosition
 
 class SecondActivity : AppCompatActivity() {
     lateinit var  toolbarTitle:TextView;
@@ -10,6 +11,7 @@ class SecondActivity : AppCompatActivity() {
     lateinit var  taskEt:EditText
     lateinit var  button: Button
     lateinit var  taskTitle: EditText
+    var  taskPosition: Int =-1;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -20,11 +22,33 @@ class SecondActivity : AppCompatActivity() {
         button=findViewById(R.id.save_task)
         toolbarIcon.setImageDrawable(getDrawable(R.drawable.icon_close))
 
+        taskPosition=intent.getIntExtra("taskPosition",-1)
+
+
+        if(taskPosition != -1)
+        {
+
+            /**
+             *  UPDATE TASK SECTION
+             *
+             *  It Means that we need to edit the task
+             */
+            var task=  MainActivity.list.get(taskPosition)
+            taskTitle.setText(task.taskTitle)
+            taskEt.setText(task.taskDescription)
+            button.setText("Update Task")
+            toolbarTitle.setText("Update Task")
+
+
+        }
+
+
         toolbarIcon.setOnClickListener {
             finish()
         }
 
 
+        if(taskPosition== -1 )
         toolbarTitle.text="Add New Task"
 
 
@@ -54,9 +78,16 @@ class SecondActivity : AppCompatActivity() {
 
             task.taskDescription  =taskEt.text.toString();
 
-            task.taskTitle= taskTitle.text.toString();
+            task.taskTitle=    taskTitle.text.toString();
 
-            MainActivity.list.add(task);
+
+            if(taskPosition==-1) {
+                MainActivity.list.add(task);
+            }else{
+                var task=  MainActivity.list.get(taskPosition)
+                task.taskDescription  =taskEt.text.toString();
+                task.taskTitle=    taskTitle.text.toString();
+            }
             finish()
 
 
