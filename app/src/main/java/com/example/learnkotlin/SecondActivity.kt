@@ -83,11 +83,17 @@ class SecondActivity : AppCompatActivity() {
 
             if(taskPosition==-1) {
                 MainActivity.list.add(task);
+
+
             }else{
                 var task=  MainActivity.list.get(taskPosition)
                 task.taskDescription  =taskEt.text.toString();
                 task.taskTitle=    taskTitle.text.toString();
             }
+
+            SharedPref.storeTasks(this,MainActivity.list)
+            MainActivity.list.clear()
+            MainActivity.list.addAll(SharedPref.getTasks(this))
             finish()
 
 

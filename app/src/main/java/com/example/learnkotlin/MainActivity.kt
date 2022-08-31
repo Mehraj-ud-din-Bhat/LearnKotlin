@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         toolbarIcon=findViewById(R.id.toolbarIcon)
         rv_tasks=findViewById(R.id.tasks_rv)
         toolbarTitle.text="Task Manager"
+         list.addAll(SharedPref.getTasks(this))
 
         toolbarIcon.setOnClickListener {
             var intent=Intent(this,SecondActivity::class.java);
@@ -114,6 +115,7 @@ class MainActivity : AppCompatActivity() {
 
         list.removeAt(pos)
         adapter.notifyDataSetChanged()
+        SharedPref.storeTasks(this, list)
     }
 
     fun onEditClicked(pos: Int)
