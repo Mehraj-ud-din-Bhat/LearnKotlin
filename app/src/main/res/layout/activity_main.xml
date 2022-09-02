@@ -8,60 +8,25 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/userName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxLines="1"
-        android:hint="Enter Your Name"
-        />
-
-    <EditText
-        android:id="@+id/userEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Your Email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        />
-
-    <EditText
-        android:id="@+id/userMobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="phone"
-        android:maxLines="1"
-        android:hint="Enter Your Mobile Number"
-        />
-
-    <EditText
-        android:id="@+id/userAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:maxLines="2"
-        android:hint="Enter Your Address"
-        />
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        />
-
-    <TextView
-        android:id="@+id/display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/fragmentContainer"
+      android:layout_width="match_parent"
+      android:layout_height="600dp"/>
 
 
 
-
+  <Button
+      android:id="@+id/login"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Login"
+      />
+  <Button
+      android:id="@+id/signup"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Sign up"
+      />
 
 
 
